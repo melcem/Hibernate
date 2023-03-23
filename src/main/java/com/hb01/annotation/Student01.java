@@ -17,7 +17,8 @@ public class Student01 {
     //@Transient // !!! DB deki tabloda "grade" adinda bir kolon olusmasini engeller
     private int grade;
 
-    private byte[] image;
+//    @Lob // !!! large object ile buyuk boyutlu datalar tutulabiliyor
+//    private byte[] image;
 
     // !!! GETTER - SETTER
 
