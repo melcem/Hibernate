@@ -3,18 +3,23 @@ package com.hb01.annotation;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-@Entity // @Entity ile bu sinifin DB de bir tabloya karsilik gelmesini sagliyoruz, student01(tablo adi otomatik)
-@Table(name="t_student01") // (opsiyoneldir) DB de tablo isminin "t_student01" olarak degismesini saglar
+@Entity //!!! @Entity ile bu sinifin DB de bir tabbloya karsilik gelmesini sagliyoruz, student01
+@Table(name="t_student01") //!!! DB de tablo isminin "t_student01" olarak degismesini sagladim
+//Java kodu içinde bu class'a ulaşırken Student01 ile, SQL ile ulaşirken t_student01 ile yazmam lazım
 public class Student01 {
+
     private int id;
+
     private String name;
+
     private int grade;
+
+    // !!! GETTER - SETTER
 
     public int getId() {
         return id;
     }
 
-    // Getter-Setter
     public void setId(int id) {
         this.id = id;
     }
@@ -35,7 +40,8 @@ public class Student01 {
         this.grade = grade;
     }
 
-    // toString
+    // !!! toString()
+
     @Override
     public String toString() {
         return "Student01{" +
