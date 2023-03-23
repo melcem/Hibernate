@@ -1,6 +1,7 @@
 package com.hb01.annotation;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity //!!! @Entity ile bu sinifin DB de bir tabbloya karsilik gelmesini sagliyoruz, student01
@@ -8,6 +9,7 @@ import javax.persistence.Table;
 //Java kodu içinde bu class'a ulaşırken Student01 ile, SQL ile ulaşirken t_student01 ile yazmam lazım
 public class Student01 {
 
+    @Id // !!! primary-key olusmasini sagliyoruz
     private int id;
 
     private String name;
