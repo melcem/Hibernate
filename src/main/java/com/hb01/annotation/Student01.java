@@ -1,5 +1,6 @@
 package com.hb01.annotation;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -10,8 +11,10 @@ import javax.persistence.Table;
 public class Student01 {
 
     @Id // !!! primary-key olusmasini sagliyoruz
+    //@Column(name="std_id")
     private int id;
 
+    @Column(name="student_name", length = 100, nullable = false, unique = false)
     private String name;
 
     private int grade;
