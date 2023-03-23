@@ -1,9 +1,6 @@
 package com.hb01.annotation;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity //!!! @Entity ile bu sinifin DB de bir tabbloya karsilik gelmesini sagliyoruz, student01
 @Table(name="t_student01") //!!! DB de tablo isminin "t_student01" olarak degismesini sagladim
@@ -17,7 +14,10 @@ public class Student01 {
     @Column(name="student_name", length = 100, nullable = false, unique = false)
     private String name;
 
+    //@Transient // !!! DB deki tabloda "grade" adinda bir kolon olusmasini engeller
     private int grade;
+
+    private byte[] image;
 
     // !!! GETTER - SETTER
 
