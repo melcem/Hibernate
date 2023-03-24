@@ -35,12 +35,12 @@ public class RunnerFetch01 {
         System.out.println(student3);
 
         // !!!  2.Yol : SQL *************************************************
-
+/*
         String sqlQuery = "SELECT * FROM t_student01";
         List<Object[]> resultList = session.createSQLQuery(sqlQuery).getResultList();
         for (Object[] object: resultList) {
             System.out.println(Arrays.toString(object));
-        }
+        }*/
 
 
 
