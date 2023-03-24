@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import java.sql.ResultSet;
 import java.util.Arrays;
 import java.util.List;
 
@@ -34,16 +35,13 @@ public class RunnerFetch01 {
         System.out.println(student2);
         System.out.println(student3);
 
+
         // !!!  2.Yol : SQL *************************************************
-/*
         String sqlQuery = "SELECT * FROM t_student01";
         List<Object[]> resultList = session.createSQLQuery(sqlQuery).getResultList();
         for (Object[] object: resultList) {
             System.out.println(Arrays.toString(object));
-        }*/
-
-
-
+        }
 
 
         tx.commit();
