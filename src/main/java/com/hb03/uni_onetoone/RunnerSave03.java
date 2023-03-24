@@ -1,6 +1,9 @@
 package com.hb03.uni_onetoone;
 
 import com.hb01.annotation.Student01;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 import javax.persistence.Column;
@@ -36,6 +39,21 @@ public class RunnerSave03 {
         Configuration con = new Configuration().configure("hibernate.cfg.xml").
                 addAnnotatedClass(Student03.class).addAnnotatedClass(Diary.class);
 
+        SessionFactory sf = con.buildSessionFactory();
+        Session session = sf.openSession();
+        Transaction tx = session.beginTransaction();
 
+        session.save(student1);
+        session.save(student2);
+        session.save(student3);
+
+        session.save(diary1);
+        session.save(diary2);
+
+
+        tx.commit();
+
+        session.close();
+        sf.close();
     }
 }
