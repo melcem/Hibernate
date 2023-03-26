@@ -11,7 +11,7 @@ public class RunnerSave01 {
         Developer01 dev1=new Developer01(1,"Harry Potter","hp@gmail.com","backend");
         Developer01 dev2=new Developer01(2,"Shrek","shrek@gmail.com","frontend");
         Developer01 dev3=new Developer01(3,"Jack Sparrow","jack@gmail.com","mobile");
-        Developer01 dev4=new Developer01(4,null,"null@mail.com","fullstack");
+        //Developer01 dev4=new Developer01(4,null,"null@mail.com","fullstack");
 
         // default: hibernate.cfg.xml - yazilmasa default degeri cagirir(ismi ayni oldugu surece)
         Configuration cfg = new Configuration().configure("hibernate.cfg.xml").
@@ -24,9 +24,9 @@ public class RunnerSave01 {
         session.save(dev1);
         session.save(dev2);
         session.save(dev3);
-        session.save(dev4);
+        //session.save(dev4); // PK ve not null hatasi aliriz
 
-        tx.commit();
+        tx.commit(); // commit ile DB de yapilan degisiklikler kalici hale gelir.
         session.close();
         sf.close();
     }
