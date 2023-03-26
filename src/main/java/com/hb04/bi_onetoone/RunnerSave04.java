@@ -37,6 +37,8 @@ public class RunnerSave04 {
         diary3.setId(103);
         diary3.setName("A diary without student");
 
+        //student1.setDiary(diary1);
+
         Configuration con = new Configuration().configure("hibernate.cfg.xml").
                 addAnnotatedClass(Student04.class).addAnnotatedClass(Diary04.class);
 
