@@ -5,6 +5,10 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+
 public class RunnerFetch04 {
     public static void main(String[] args) {
 
@@ -30,6 +34,24 @@ public class RunnerFetch04 {
         System.out.println("------Student uzerinden diary objesi------");
         System.out.println(student.getDiary());
 
+        //!!! Task 1: Kesisim kumesini getirin (INNER JOIN)
+        String hqlQuery = "SELECT s.name, d.name FROM Student04 s INNER JOIN FETCH Diary04 d on s.id = d.student";
+        List<Objects[]> resultList = session.createQuery(hqlQuery).getResultList();
+        for (Object[] objects : resultList){
+            System.out.println(Arrays.toString(objects));
+        }
+
+        // lambda expression ile yaz
+        /*resultList.forEach(oa ->{
+            System.out.println(Arrays.toString(oa));
+        });*/
+
+        // !!! Task 2: HQL LEFT JOIN
+        String hqlQuery2 = "SELECT s.name, d.name FROM Student04 s LEFT JOIN FETCH Diary04 d on s.id = d.student";
+        List<Objects[]> resultList2 = session.createQuery(hqlQuery2).getResultList();
+        for (Object[] objects : resultList2){
+            System.out.println(Arrays.toString(objects));
+        }
 
         tx.commit();
         session.close();
