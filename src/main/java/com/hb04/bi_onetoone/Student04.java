@@ -16,7 +16,7 @@ public class Student04 {
     private int grade;
 
     @OneToOne(mappedBy = "student") //!!! sadece Diary tablosunda iliski icin yeni bir kolon olusmasini sagliyor
-    private Diary diary;
+    private Diary04 diary;
 
     //!!! Getter - Setter
 
@@ -44,11 +44,11 @@ public class Student04 {
         this.grade = grade;
     }
 
-    public Diary getDiary() {
+    public Diary04 getDiary() {
         return diary;
     }
 
-    public void setDiary(Diary diary) {
+    public void setDiary(Diary04 diary) {
         this.diary = diary;
     }
 
