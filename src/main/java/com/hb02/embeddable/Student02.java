@@ -60,7 +60,6 @@ public class Student02 {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", grade=" + grade +
-                ", address=" + address +
                 '}';
     }
 }
