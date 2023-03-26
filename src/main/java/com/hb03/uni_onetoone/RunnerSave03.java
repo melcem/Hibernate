@@ -1,12 +1,9 @@
 package com.hb03.uni_onetoone;
 
-import com.hb01.annotation.Student01;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-
-import javax.persistence.Column;
 
 public class RunnerSave03 {
     public static void main(String[] args) {
