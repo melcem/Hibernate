@@ -14,11 +14,17 @@ public class RunnerFetch03 {
         Session session = sf.openSession();
         Transaction tx = session.beginTransaction();
 
+        // student fetch
         Student03 student = session.get(Student03.class,1001);
-        
 
+        // diary fetch
+        Diary diary = session.get(Diary.class,101);
 
-
+        System.out.println(student);
+        System.out.println("-------------------------");
+        System.out.println(diary);
+        System.out.println("-------------------------");
+        System.out.println(diary.getStudent());
 
         tx.commit();
 
