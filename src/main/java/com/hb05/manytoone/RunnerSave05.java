@@ -31,12 +31,17 @@ public class RunnerSave05 {
         student3.setUniversity(university);
 
         Configuration con = new Configuration().configure("hibernate.cfg.xml").
-                addAnnotatedClass(Student05.class);
+                addAnnotatedClass(Student05.class).addAnnotatedClass(University.class);
 
         SessionFactory sf = con.buildSessionFactory();
         Session session = sf.openSession();
         Transaction tx = session.beginTransaction();
 
+        session.save(university);
+
+        session.save(student1);
+        session.save(student2);
+        session.save(student3);
 
         tx.commit();
         session.close();
