@@ -46,6 +46,5 @@ public class RunnerSave05 {
         tx.commit();
         session.close();
         sf.close();
-
     }
 }
