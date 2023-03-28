@@ -53,6 +53,20 @@ public class RunnerFetch04 {
             System.out.println(Arrays.toString(objects));
         }
 
+        // !!! Task 2: HQL RIGHT JOIN
+        String hqlQuery3 = "SELECT s.name, d.name FROM Student04 s RIGHT JOIN FETCH Diary04 d on s.id=d.student";
+        List<Objects[]> resultList3 = session.createQuery(hqlQuery3).getResultList();
+        /*resultList3.forEach(oa ->{
+            System.out.println(Arrays.toString(oa));
+        });*/
+        for (Object[] objects:resultList3){
+            System.out.println(Arrays.toString(objects));
+        }
+
+        // !!! Task 2: HQL LEFT JOIN
+        String hqlQuery4 = "SELECT s.name,d.name FROM Student04 s FULL JOIN FETCH Diary04 on s.id=d.student";
+
+
         tx.commit();
         session.close();
         sf.close();
