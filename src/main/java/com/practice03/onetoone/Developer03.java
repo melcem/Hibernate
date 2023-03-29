@@ -20,4 +20,70 @@ public class Developer03 {
     @OneToOne
     @JoinColumn(name="c_name")
     private Computer computer;
+
+    //Constructor
+    public Developer03(){}
+
+    public Developer03(int id, String name, String email, String branch, Computer computer) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.branch = branch;
+        this.computer = computer;
+    }
+
+    //Getter-Setter
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getBranch() {
+        return branch;
+    }
+
+    public void setBranch(String branch) {
+        this.branch = branch;
+    }
+
+    public Computer getComputer() {
+        return computer;
+    }
+
+    public void setComputer(Computer computer) {
+        this.computer = computer;
+    }
+
+    //toString()
+
+    @Override
+    public String toString() {
+        return "Developer03{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", branch='" + branch + '\'' +
+                ", computer=" + computer +
+                '}';
+    }
 }
