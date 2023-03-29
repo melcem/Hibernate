@@ -3,6 +3,7 @@ package com.practice03.onetoone;
 import javax.persistence.*;
 
 @Entity
+@Table(name="t_developer3")
 public class Developer03 {
     @Id
     private int id;
