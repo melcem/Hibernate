@@ -28,7 +28,7 @@ public class RunnerFetch01 {
             System.out.println(Arrays.toString(r));
         }
 
-        //1-hql ile tum datayi cekiniz
+        //2-hql ile tum datayi cekiniz
         String hqlQuery1 = "FROM Developer01";
         List<Developer01> devList = session.createQuery(hqlQuery1,Developer01.class).getResultList();
         System.out.println("-----------HQL-----------");
@@ -37,18 +37,22 @@ public class RunnerFetch01 {
         // odev
         // 3-hql ile ismi 'Shrek' olan datayi cekiniz.
         String hqlQuery2 = "FROM Developer01 WHERE name='Shrek'";
-        Developer01 dev2 = session.createQuery(hqlQuery2,Developer01.class).uniqueResult();
-        System.out.println(dev2);
+        List<Developer01> devList3 = session.createQuery(hqlQuery2,Developer01.class).getResultList();
+        System.out.println("-----------Homework3-----------");
+        devList3.forEach(t->System.out.println(t));
+        System.out.println(devList3);
 
         // 4-hql ile emali 'jack@gmail.com' olan datayi cekiniz.
         String hqlQuery3 = "FROM Developer01 WHERE email='jack@gmail.com'";
+        System.out.println("-----------Homework4-----------");
         Developer01 dev3 = session.createQuery(hqlQuery3,Developer01.class).uniqueResult();
         System.out.println(dev3);
 
         // 5-hql ile branch i backend olan datanin ismini getiriniz.
-        String hqlQuery4 = "FROM Developer01 WHERE branch='backend'";
-        Developer01 dev4 = session.createQuery(hqlQuery4,Developer01.class).uniqueResult();
-        System.out.println(dev4);
+        String hqlQuery4 = "SELECT d.name FROM Developer01 d WHERE branch='backend'";
+        System.out.println("-----------Homework5-----------");
+        List<String> nameList = session.createQuery(hqlQuery4,String.class).getResultList();
+        nameList.forEach(t-> System.out.println(t));
 
         tx.commit(); // sadece fetch islemi yapacaksak, commit olmasa da olur
         session.close();
