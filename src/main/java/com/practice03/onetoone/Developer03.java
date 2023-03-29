@@ -17,8 +17,8 @@ public class Developer03 {
 
     //her developer'a bir bilgisayar veriliyor ve bu bilgi tutulmak istiyor
 
-    @OneToOne
-    @JoinColumn(name="c_name")
+    @OneToOne //relation owner
+    @JoinColumn(name="c_id") //default:computer_id
     private Computer computer;
 
     //Constructor

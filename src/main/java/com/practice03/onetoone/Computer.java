@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="t_computer")
-public class Computer {
+public class Computer { //PK
     @Id
     private int id;
 
@@ -12,6 +12,9 @@ public class Computer {
     private String serialNo;
 
     private String brand;
+
+    @OneToOne(mappedBy = "computer") //computer tablosunda FK olusmaz
+    private Developer03 developer;
 
     //Constructor
     public Computer(){}
@@ -47,9 +50,15 @@ public class Computer {
         this.brand = brand;
     }
 
+    public Developer03 getDeveloper() { return developer;  }
+
+    public void setDeveloper(Developer03 developer) {
+        this.developer = developer;
+    }
+
     //toString()
 
-    @Override
+    @Override //developer degiskenini de yazdirirsak StackOverFlow
     public String toString() {
         return "Computer{" +
                 "id=" + id +
