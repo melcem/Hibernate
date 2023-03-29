@@ -21,13 +21,13 @@ public class RunnerSave03 {
         Session session = sf.openSession();
         Transaction tx = session.beginTransaction();
 
-        session.save(dev1);
-        session.save(dev2);
-        session.save(dev3);
-
         session.save(com1);
         session.save(com2);
         session.save(com3);
+
+        session.save(dev1);
+        session.save(dev2);
+        session.save(dev3);
 
         tx.commit();
         session.close();
