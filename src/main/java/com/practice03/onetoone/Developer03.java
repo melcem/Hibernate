@@ -1,8 +1,6 @@
 package com.practice03.onetoone;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Developer03 {
@@ -19,4 +17,7 @@ public class Developer03 {
 
     //her developer'a bir bilgisayar veriliyor ve bu bilgi tutulmak istiyor
 
+    @OneToOne
+    @JoinColumn(name="c_name")
+    private Computer computer;
 }
