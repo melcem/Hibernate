@@ -2,7 +2,7 @@ package com.hb01.annotation;
 
 import javax.persistence.*;
 
-@Entity //!!! @Entity ile bu sinifin DB de bir tabbloya karsilik gelmesini sagliyoruz, student01
+@Entity //!!! @Entity ile bu sinifin DB de bir tabloya karsilik gelmesini sagliyoruz, student01
 @Table(name="t_student01") //!!! DB de tablo isminin "t_student01" olarak degismesini sagladim
 // java kodu icinde bu classa ulasirken Student01 ile, SQL ile ulasirken t_student01 ile yazmam lazim
 public class Student01 { //student01
