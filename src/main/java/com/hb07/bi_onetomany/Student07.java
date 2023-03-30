@@ -16,7 +16,7 @@ public class Student07 {
     private int grade;
 
     @OneToMany(mappedBy = "student")
-    private List<Book07> book07List =new ArrayList<>();
+    private List<Book07> bookList =new ArrayList<>();
 
     //!!! Getter-Setter
 
@@ -45,7 +45,7 @@ public class Student07 {
     }
 
     public List<Book07> getBook07List() {
-        return book07List;
+        return bookList;
     }
 
     /*public void setBook07List(List<Book07> book07List) {
@@ -60,7 +60,7 @@ public class Student07 {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", grade=" + grade +
-                ", book07List=" + book07List +
+                ", book07List=" + bookList +
                 '}';
     }
 }
