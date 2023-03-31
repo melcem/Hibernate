@@ -15,7 +15,7 @@ public class Student07 {
 
     private int grade;
 
-    @OneToMany(mappedBy = "student")
+    @OneToMany(mappedBy = "student", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Book07> bookList =new ArrayList<>();
 
     //!!! Getter-Setter
