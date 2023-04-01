@@ -1,7 +1,5 @@
 package com.hb09.fetchtypes;
 
-import com.hb08.manytomany.Book08;
-import com.hb08.manytomany.Student08;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -44,6 +42,8 @@ public class RunnerSave09 {
         book5.setId(105);
         book5.setName("E Book");
 
+        // Cascade'den dolayi @OneToMany iliskisinin kurulabilmesi icin her iki entity class uzerinden
+        // setleme islemi yapmamiz gerekir, eger yapmazsak @JoinColumn ile eklenen kolon null degerleri ile dolar
         student1.getBookList().add(book1);
         student1.getBookList().add(book2);
 
@@ -60,7 +60,7 @@ public class RunnerSave09 {
 
         book5.setStudent(student3);
 
-        org.hibernate.cfg.Configuration con = new Configuration().configure("hibernate.cfg.xml").
+        Configuration con = new Configuration().configure("hibernate.cfg.xml").
                 addAnnotatedClass(Student09.class).addAnnotatedClass(Book09.class);
         SessionFactory sf = con.buildSessionFactory();
         Session session = sf.openSession();
