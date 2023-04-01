@@ -12,7 +12,7 @@ public class Book09 {
 
     private String name;
 
-    @ManyToOne
+    @ManyToOne //EAGER
     @JoinColumn
     private Student09 student;
 
