@@ -20,7 +20,7 @@ public class Student08 {
             joinColumns = {@JoinColumn(name="std_id")},
             inverseJoinColumns = {@JoinColumn(name = "book_id")}
     )
-    private List<Book08> booklist = new ArrayList<>();
+    private List<Book08> bookList = new ArrayList<>();
 
     //!!!Getter-Setter
 
@@ -49,11 +49,11 @@ public class Student08 {
     }
 
     public List<Book08> getBooklist() {
-        return booklist;
+        return bookList;
     }
 
-    public void setBooklist(List<Book08> booklist) {
-        this.booklist = booklist;
+    public void setBooklist(List<Book08> bookList) {
+        this.bookList = bookList;
     }
 
     //!!! toString()
@@ -64,7 +64,7 @@ public class Student08 {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", grade=" + grade +
-                ", booklist=" + booklist +
+                ", booklist=" + bookList +
                 '}';
     }
 }
