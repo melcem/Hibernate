@@ -1,9 +1,6 @@
 package com.hb09.fetchtypes;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +14,7 @@ public class Student09 {
 
     private int grade;
 
-    @OneToMany
+    @OneToMany(mappedBy = "student",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List<Book09> bookList = new ArrayList<>();
 
     //!!! Getter - Setter
@@ -45,6 +42,12 @@ public class Student09 {
     public void setGrade(int grade) {
         this.grade = grade;
     }
+
+    /*2.taraf Many ise default olarak Lazy , One ise default olarak EAGER yapar :
+    OneToMany       --> LAZY
+    ManyToMany      --> LAZY
+    OneToOne        --> EAGER
+    ManyToOne       --> EAGER*/
 
     public List<Book09> getBookList() {
         return bookList;
