@@ -8,6 +8,7 @@ import org.hibernate.cfg.Configuration;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
@@ -29,9 +30,9 @@ public class RunnerFetch11 {
         Transaction tx = session.beginTransaction();
 
         // update process
-        Student11 student = session.get(Student11.class,1L);
+        /*Student11 student = session.get(Student11.class,1L);
         student.setName("Updated " + student.getName());
-        session.update(student);
+        session.update(student);*/
 
         /*//!!! Degisken tanimla
         // MathGrade puani 30'dan kucuk olan ogrencilerin puanlarini 80 yapalim
@@ -71,10 +72,22 @@ public class RunnerFetch11 {
         resulList3.forEach(System.out::println);*/
 
         //!!! 4.Örnek MathGrade değeri 95 den küçük olan datalar
-        criteriaQuery.select(root).where(cb.lessThan(root.get("mathGrade"),95));
+        /*criteriaQuery.select(root).where(cb.lessThan(root.get("mathGrade"),95));
         Query query4 = session.createQuery(criteriaQuery);
         List<Student11> resultList4 = query4.getResultList();
-        resultList4.forEach(System.out::println);
+        resultList4.forEach(System.out::println);*/
+
+        // !!! 5. örnek : id si 1 veya mathGrade i 75 den büyük olan recordu bulalım
+        Long id = 1L;
+
+        Predicate predicateForId = cb.equal(root.get("id"),id);
+        Predicate predicateForMathGrade = cb.greaterThan(root.get("mathGrade"),75);
+        Predicate predicateStd = cb.or(predicateForId,predicateForMathGrade);
+
+        criteriaQuery.where(predicateStd);
+        Query query5 = session.createQuery(criteriaQuery);
+        List<Student11> resultList5 = query5.getResultList();
+        resultList5.forEach(System.out::println);
 
         tx.commit();
         session.close();
