@@ -4,10 +4,12 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import java.util.List;
 
 public class RunnerFetch11 {
     public static void main(String[] args) {
@@ -46,9 +48,16 @@ public class RunnerFetch11 {
         System.out.println("Degistirilen Kayit Sayisi: " +numOfRecords);*/
 
         // !!! CriteriaAPI ***************************************
-        CriteriaBuilder cb = session.getCriteriaBuilder();
-        CriteriaQuery<Student11> criteriaQuery = cb.createQuery(Student11.class);
+        CriteriaBuilder cf = session.getCriteriaBuilder();
+        CriteriaQuery<Student11> criteriaQuery = cf.createQuery(Student11.class);
         Root<Student11> root = criteriaQuery.from(Student11.class);
+
+        criteriaQuery.select(root);
+        Query query1 = session.createQuery(criteriaQuery);
+        List<Student11> resulList = query1.getResultList();
+        resulList.forEach(System.out::println);
+
+
 
         tx.commit();
         session.close();
