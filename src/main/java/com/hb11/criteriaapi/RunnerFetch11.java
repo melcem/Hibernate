@@ -4,8 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-
-import javax.persistence.Query;
+import org.hibernate.query.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
@@ -48,16 +47,21 @@ public class RunnerFetch11 {
         System.out.println("Degistirilen Kayit Sayisi: " +numOfRecords);*/
 
         // !!! CriteriaAPI ***************************************
-        CriteriaBuilder cf = session.getCriteriaBuilder();
-        CriteriaQuery<Student11> criteriaQuery = cf.createQuery(Student11.class);
+        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaQuery<Student11> criteriaQuery = cb.createQuery(Student11.class);
         Root<Student11> root = criteriaQuery.from(Student11.class);
 
-        criteriaQuery.select(root);
+        /*criteriaQuery.select(root);
         Query query1 = session.createQuery(criteriaQuery);
         List<Student11> resulList = query1.getResultList();
-        resulList.forEach(System.out::println);
+        resulList.forEach(System.out::println);*/
 
-
+        //!!! 2.Örnek , Student ismi "Student Name 6" olan öğrenci bilgilerini getirelim\
+        criteriaQuery.select(root). // SELECT * FROM Student11
+                where(cb.equal(root.get("name"), "Student Name 6"));
+        Query<Student11> query2 = session.createQuery(criteriaQuery);
+        List<Student11> resultList2 = query2.getResultList();
+        resultList2.forEach(System.out::println);
 
         tx.commit();
         session.close();
