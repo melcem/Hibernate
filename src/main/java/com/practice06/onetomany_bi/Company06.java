@@ -1,9 +1,6 @@
 package com.practice06.onetomany_bi;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,7 +13,8 @@ public class Company06 {
     private String companyName;
 
     //company'den calisan devleri gormek istiyoruz
-    @OneToMany(mappedBy = "company")
+    //@OneToMany(mappedBy = "company",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "company",orphanRemoval = true)
     private Set<Developer06> developers = new HashSet<>();
 
     //Constructors
