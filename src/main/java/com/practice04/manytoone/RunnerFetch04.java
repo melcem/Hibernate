@@ -29,9 +29,16 @@ public class RunnerFetch04 {
         System.out.println(company1);
         //company'den dev bilgilerine ulasamiyoruz, cunku tek yonlu iliski var.
 
-        //3) tum developer'larin ismini ve calistiklari company ismini yazdiriniz.
-        String sql = "SELECT d.dev_name, c.companyName.name FROM t_developer04 d JOIN company c d.company_id=c_id";
-        List<Object[]> resultList = session.createQuery(sql).getResultList();
+        //3)1. yontem tum developer'larin ismini ve calistiklari company ismini yazdiriniz.
+        String sql = "SELECT d.dev_name, c.companyName FROM t_developer4 d JOIN company c ON d.company_id=c.id";
+        System.out.println("--------------3----------------");
+        List<Object[]> resultList = session.createSQLQuery(sql).getResultList();
+        resultList.forEach(t-> System.out.println(Arrays.toString(t)));
+
+        //2. yontem
+        String hql = "SELECT d.name, d.company.companyName FROM Developer04 d";
+        System.out.println("--------------3----------------");
+        List<Object[]> resultList2 = session.createQuery(hql).getResultList();
         resultList.forEach(t-> System.out.println(Arrays.toString(t)));
 
         tx.commit();
