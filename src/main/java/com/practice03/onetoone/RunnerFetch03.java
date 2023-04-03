@@ -32,8 +32,9 @@ public class RunnerFetch03 {
         Developer03 dev2 = session.get(Developer03.class,3);
         System.out.println(dev2.getComputer()); // uni-directional olsaydi computerden dev'e ulasamazdik
 
-        //odev developer'larin ismini ve kullandiklari computer'in markasini yazdiriniz.
-        String hqlQuery = "SELECT d.name, c.brand FROM Developer03 d LEFT JOIN FETCH Computer c on d.id=d.computer.id";
+        //odev tum developer'larin ismini ve kullandiklari computer'in markasini yazdiriniz.
+        //String hqlQuery = "SELECT d.name, c.brand FROM Developer03 d LEFT JOIN FETCH Computer c on d.id=d.computer.id";
+        String hqlQuery = "SELECT d.name, c.brand FROM Developer03 d JOIN FETCH Computer c on c.id=d.computer.id";
         System.out.println("------------Homework----------");
         List<Object[]> resultList = session.createQuery(hqlQuery).getResultList();
         resultList.forEach(oa->{
