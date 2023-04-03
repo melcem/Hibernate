@@ -41,6 +41,12 @@ public class RunnerFetch04 {
         List<Object[]> resultList2 = session.createQuery(hql).getResultList();
         resultList.forEach(t-> System.out.println(Arrays.toString(t)));
 
+        //4) Google'da calisan developer'larin isim, branch ve company name bilgilerini yazdiriniz.
+        String hql2 = "SELECT d.name, d.branch, d.company.companyName FROM Developer04 d WHERE d.company.companyName='Google'";
+        System.out.println("--------------HomeWork----------------");
+        List<Object[]> resultList3 = session.createQuery(hql2).getResultList();
+        resultList3.forEach(t-> System.out.println(Arrays.toString(t)));
+
         tx.commit();
         session.close();
         sf.close();
