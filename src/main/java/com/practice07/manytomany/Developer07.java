@@ -22,7 +22,7 @@ public class Developer07 {//ilişki sahibi
     private String branch;
 
     @ManyToMany(mappedBy = "developers")
-    private Set<Developer07> projects = new HashSet<>();
+    private Set<Project> projects=new HashSet<>();
 
     public Developer07() {
     }
@@ -66,17 +66,17 @@ public class Developer07 {//ilişki sahibi
         this.branch = branch;
     }
 
-    public Set<Developer07> getProjects() {
+    public Set<Project> getProjects() {
         return projects;
     }
 
-    public void setProjects(Set<Developer07> projects) {
+    public void setProjects(Set<Project> projects) {
         this.projects = projects;
     }
 
     @Override
     public String toString() {
-        return "Developer06{" +
+        return "Developer07{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
