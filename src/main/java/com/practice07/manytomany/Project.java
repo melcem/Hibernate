@@ -6,17 +6,17 @@ import java.util.Set;
 
 @Entity
 public class Project {
+
     @Id
     private Long id;
 
     private String title;
 
-    @ManyToMany(cascade = CascadeType.ALL)//iliski sahibi
-    @JoinTable(name="project_developer",joinColumns = @JoinColumn(name="project_id"),
-                                        inverseJoinColumns = @JoinColumn(name="dev_id"))
-    private Set<Developer07> developers = new HashSet<>();
+    @ManyToMany(cascade = CascadeType.ALL)//ilişki sahibi
+    @JoinTable(name = "project_dev", joinColumns = @JoinColumn(name="project_id"),
+            inverseJoinColumns = @JoinColumn(name="dev_id"))
+    private Set<Developer07> developers=new HashSet<>();
 
-    //Constructors
     public Project() {
     }
 
@@ -25,7 +25,6 @@ public class Project {
         this.title = title;
     }
 
-    //Getter-Setter
     public Long getId() {
         return id;
     }
@@ -49,8 +48,6 @@ public class Project {
     public void setDevelopers(Set<Developer07> developers) {
         this.developers = developers;
     }
-
-    //toString()
 
     @Override
     public String toString() {
