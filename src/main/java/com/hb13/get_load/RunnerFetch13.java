@@ -9,7 +9,6 @@ package com.hb13.get_load;
                dönen nesne üzerinde delete yapılacaksa kullanılabilir
  */
 
-import com.hb12.caching.Student12;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -24,7 +23,7 @@ public class RunnerFetch13 {
         Session session = sf.openSession();
         Transaction tx = session.beginTransaction();
 
-        System.out.println("-------get method'nun basladigi yer------");
+        /*System.out.println("-------get method'nun basladigi yer------");
         Student13 student1 =  session.get(Student13.class,1L);
 
         System.out.println("-------get method'nun bittigi yer------");
@@ -42,7 +41,28 @@ public class RunnerFetch13 {
         System.out.println("Student ID: "+student2.getId());
 
         System.out.println("---------getName() cagrildi");
-        System.out.println("Student Name: "+student2.getName());
+        System.out.println("Student Name: "+student2.getName());*/
+
+        // !!! DB'de olmayan id'ler ile get ve load method'larini karsilastiralim:
+//        Student13 student3 = session.get(Student13.class,5L);
+//        if(student3!=null){
+//            System.out.println("Student ID: " + student3.getId());
+//            System.out.println("Student Name: " + student3.getName());
+//        }
+
+        System.out.println("------------------------------------");
+//        Student13 student4 = session.load(Student13.class,100L);
+//        if(student4!=null){
+//            System.out.println("Student ID: " + student4.getId());
+//            System.out.println("Student Name: " + student4.getName());
+//        }
+
+        // !!! Peki bu durumda load method'u nerede kullanilir???
+//        Student13 student5 = session.get(Student13.class,1L);
+//        session.delete(student5);
+        Student13 student5 = session.load(Student13.class,1L);
+        session.delete(student5);
+
 
         tx.commit();
         session.close();
