@@ -33,6 +33,11 @@ public class RunnerSave14 {
         session.update(student1); // persistent scope
         session.merge(student1); // persistent scope
 
+        session.update(student1); // Detached olmuş student1 objesini Persisted State'e alır
+        session.merge(student1); // Detached olmuş student1 objesini Persisted State'e alır
+            // Bir obje new'lendiği zaman Hibernate o objeyi hemen takip etmez, DB ile bağlantısının kurulmasını bekler.
+            // save gibi methodlar ile DB ile direkt fiziksel bağlantıya geçtiği an Hibernate bu objeyi takip etmeye başlar
+
         tx.commit();
         session.close();
         sf.close();
