@@ -9,6 +9,8 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import javax.sound.midi.SysexMessage;
+import javax.swing.plaf.synth.SynthUI;
 import java.util.List;
 
 public class RunnerFetch09criteria {
@@ -46,8 +48,11 @@ public class RunnerFetch09criteria {
 
         //4) Get the developers whose name is Mick or whose salary is greater than $8000.
         Predicate predicate1 = cb.equal(root.get("name"),"Mick");
-        Predicate predicate2 = cb.greaterThan(root.get("salary"),8000);
-        cq.select(root).where(cb.or(predicate1,predicate2));
+        Predicate predicate2 = cb.greaterThan(root.get("salary"),8500);
+        Predicate predicate3 = cb.or(predicate1,predicate2);
+        cq.select(root).where(predicate3);
+        List<Developer09> resultList4 = session.createQuery(cq).getResultList();
+        resultList4.forEach(System.out::println);
 
         tx.commit();
         session.close();
