@@ -3,9 +3,15 @@ package com.practice08.idgeneration;
 import javax.persistence.*;
 
 @Entity
+@Table(name="t_developer8")
 public class Developer08 {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    //id'nin uretilmesinden, otomatik olusturulmasindan tamamen DB sorumludur.
+    @SequenceGenerator(name="sequence",sequenceName = "dev8_seq",initialValue = 100,allocationSize = 5)
+    //allocationSize kadar id kumesi olusturulur, her insert icin Java uygulamasi, DB'ye siradaki sequence'in
+    //ilk elemanini sorar.
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @Column(name="dev_name",length = 50,nullable = false)
