@@ -22,6 +22,8 @@ public class RunnerSave07 {
         project2.getDevelopers().add(dev2);
         project2.getDevelopers().add(dev3);
 
+        //dev1.setProjects(project1); --> CascadeType.ALL ile dev'ler save yapinca project'ler de save olsun istersek
+
         Configuration cfg=new Configuration().configure("hibernate.cfg.xml").
                 addAnnotatedClass(Developer07.class).addAnnotatedClass(Project.class);
         SessionFactory sf=cfg.buildSessionFactory();
