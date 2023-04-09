@@ -15,7 +15,11 @@ public class RunnerFetch07 {
 
         //1) id'si 1 olan developer'in calistigi projeleri yazdiriniz.
         Developer07 dev1 = session.get(Developer07.class,1L);
-        System.out.println(dev1);
+        System.out.println(dev1.getProjects());
+
+        //2) id'si 22 olan projede calisan dev'leri getiriniz.
+        Project project = session.get(Project.class,22L);
+        System.out.println(project.getDevelopers());
 
         tx.commit();
         session.close();
