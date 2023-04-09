@@ -1,11 +1,9 @@
 package com.practice09.criteriaapi;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name="t_developer9")
 public class Developer09 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,32 +14,29 @@ public class Developer09 {
     private int salary;
 
     //Constructors
-
     public Developer09() {
     }
-
     public Developer09(String name, int salary) {
         this.name = name;
         this.salary = salary;
     }
 
     //Getter-Setter
-
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
 
     public String getName() {
         return name;
     }
 
-//    public void setName(String name) {
-//        this.name = name;
-//    }
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public int getSalary() {
         return salary;
@@ -52,7 +47,6 @@ public class Developer09 {
     }
 
     //toString()
-
     @Override
     public String toString() {
         return "Developer09{" +
