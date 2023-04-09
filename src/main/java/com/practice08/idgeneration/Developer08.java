@@ -9,9 +9,9 @@ public class Developer08 {
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     //id'nin uretilmesinden, otomatik olusturulmasindan tamamen DB sorumludur.
     @SequenceGenerator(name="sequence",sequenceName = "dev8_seq",initialValue = 100,allocationSize = 5)
-    //allocationSize kadar id kumesi olusturulur, her insert icin Java uygulamasi, DB'ye siradaki sequence'in
-    //ilk elemanini sorar.
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    //allocationSize kadar id kumesi olusturulur, her insert icin Java uygulamasi, DB'ye siradaki
+    // sequence'in(yeni id kumesinden) ilk elemanini sorar.
+    @GeneratedValue(generator = "sequence",strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @Column(name="dev_name",length = 50,nullable = false)
