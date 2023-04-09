@@ -20,12 +20,14 @@ public class RunnerSave08 {
         Transaction tx=session.beginTransaction();
 
         //seq=100,101,102,103,104,105 olusturur
+        //seq=106,107,108,109,110
+        //seq=111,112,113,114,115
 
-        session.save(dev1);
-        session.save(dev2);
-        session.save(dev3);
-//        session.save(dev4);
-//        session.save(dev5);
+//        session.save(dev1);
+//        session.save(dev2);
+//        session.save(dev3);
+        session.save(dev4);
+        session.save(dev5);
 
         // id IDENTITY ile generate edildiginde Java uygulamasi siradaki id'yi bilmez.
         // DB en son kaldigi degerden devam eder.
